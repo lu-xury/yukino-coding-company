@@ -1,0 +1,50 @@
+name: Bug report
+description: Report an installation, validation, animation, or packaging problem.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach copyrighted official reference images. For security-sensitive reports, use private vulnerability reporting.
+  - type: input
+    id: version
+    attributes:
+      label: Repository version or commit
+      placeholder: "1.1.0 / commit SHA"
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Codex surface
+      options:
+        - Desktop app
+        - Codex CLI
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validator output
+      description: Paste the output from python scripts/validate_pet.py.
+      render: shell
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "macOS version, app/CLI version, terminal, Python version"
