@@ -4,6 +4,14 @@ All notable changes are documented here. The project follows Semantic
 Versioning for repository releases; the installed pet id remains
 `yukino-yukinoshita`.
 
+## [Unreleased]
+
+### Fixed
+
+- Updated GitHub Actions to `actions/setup-python@v6` and explicitly pointed
+  pip caching at `requirements-dev.txt`, fixing the failed setup step and the
+  Node 20 deprecation warning.
+
 ## [1.1.0] - 2026-07-19
 
 ### Changed
