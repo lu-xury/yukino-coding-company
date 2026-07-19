@@ -47,6 +47,11 @@ row 0, column 7 remains unused. Every other unused cell after a standard row's
 final used column must have zero visible alpha. Row 4 cannot be expanded to
 eight visible cells without changing the application contract.
 
+These timings are runtime/preview contract values, not package-level options.
+`pet.json` does not provide a supported action-speed field. To slow the
+perceived action while staying compatible, consecutive used cells may hold the
+same key pose with small secondary changes such as a blink or hair settle.
+
 ## Look rows
 
 Row 9:

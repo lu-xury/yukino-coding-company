@@ -2,7 +2,7 @@
 
 [中文说明](README.md) · [Installation](docs/INSTALLATION.md) · [Interaction design](docs/INTERACTION_DESIGN.md)
 
-An unofficial, non-commercial Yukinoshita Yukino-inspired animated pet for Codex. It uses the Codex v2 8×11 sprite contract, normal anime proportions, restrained galgame-style acting, and a grounded pointer-hover response instead of an exuberant jump.
+An unofficial, non-commercial Yukinoshita Yukino-inspired animated pet for Codex. It uses the Codex v2 8×11 sprite contract, normal anime proportions, restrained galgame-style acting, and grounded pointer-hover behavior. Event actions hold their key pose across adjacent frames so reproach, waiting, focused work, and approval remain readable instead of flashing by.
 
 ## Install with a coding agent
 
@@ -33,6 +33,16 @@ See [docs/INSTALLATION.md](docs/INSTALLATION.md) for Windows, updates, uninstall
 ## Preview
 
 ![Contact sheet](previews/contact-sheet.png)
+
+Codex controls the fixed row timing. Perceived speed is improved by holding the same key pose across adjacent frames, not by adding unsupported timing fields. The artwork also emphasizes high-contrast eyes, brows, ribbons, white piping, hands, and shoes at the native `192x208` size.
+
+| Greeting | Grounded hover | Failed / reproach |
+| --- | --- | --- |
+| ![Greeting](previews/waving.gif) | ![Grounded hover](previews/hover.gif) | ![Reproach](previews/failed.gif) |
+
+| Waiting | Working | Review / approval |
+| --- | --- | --- |
+| ![Waiting](previews/waiting.gif) | ![Working](previews/working.gif) | ![Review](previews/review.gif) |
 
 ## License boundary
 

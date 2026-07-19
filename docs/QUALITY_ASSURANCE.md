@@ -37,8 +37,9 @@ local pet-generation skill installation.
 | `qa/direction-blind-validation.json` | Three-reviewer blind axis consensus and hard cardinal gates. |
 | `qa/direction-semantics.json` | Labeled verdict for every look direction. |
 | `qa/look-continuity.json` | Adjacent direction metrics and reviewed warnings. |
-| `qa/hover-final-visual-qa.json` | Independent approval of the repaired hover animation and clarity. |
-| `qa/stable-slots-resolution.json` | Explanation and approval of stable-slot extraction. |
+| `qa/legibility-final-visual-qa.json` | Independent native-size approval of all six repaired event-action rows. |
+| `qa/row-diff.json` | Pixel regression proof that only rows 3–8 changed. |
+| `qa/run-summary.json` | Release summary and repair scope. |
 
 ## Current accepted warnings
 
@@ -63,14 +64,16 @@ failure only when normal-size playback shows a conspicuous defect.
 - consistent black blazer, white piping, red bow, plaid skirt, socks, shoes;
 - no chibi or mascot-doll drift.
 
-### Hover row
+### Event-action rows
 
-- five frames, not eight;
-- no airborne feet;
-- no celebratory smile or exaggerated excitement;
-- subtle notice, recoil, side-eye/blush, and recovery;
-- stable-slot motion is smooth and unclipped;
-- facial and uniform details remain readable at `192x208`.
+- waving holds the raised hand in frames 1–2;
+- hover holds the guarded side-eye in frames 2–3 and never lifts either foot;
+- failed holds arms-crossed reproach in frames 2–5;
+- waiting holds the needs-input pose in frames 2–4;
+- running holds the focused hand-to-chin pose in frames 2–4;
+- review holds the restrained approval beat in frames 2–4;
+- facial, uniform, hand, and shoe landmarks remain readable at `192x208`;
+- motion remains smooth, grounded, unclipped, and persona-faithful.
 
 ### Directions
 
@@ -85,5 +88,5 @@ failure only when normal-size playback shows a conspicuous defect.
 
 For a targeted row repair, compare the old and new atlases row by row. Rows
 outside the requested change should be pixel-identical whenever possible.
-The hover repair release changed only row 4; rows 0–3 and 5–10 remained
-unchanged.
+The legibility repair release changed only rows 3–8. Rows 0–2 and 9–10 are
+pixel-identical to the previously approved atlas.

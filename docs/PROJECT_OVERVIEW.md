@@ -79,7 +79,9 @@ The current release has:
 - required standard-row frame counts;
 - passing hard cardinal direction blind tests;
 - reviewed intermediate direction warnings;
-- independent approval of the grounded hover repair;
+- independent approval of all six repaired event-action rows at native size;
+- adjacent-frame key-pose holds that improve perceived speed without changing the runtime contract;
+- pixel regression evidence showing that only rows 3–8 changed;
 - pixel-identical PNG and lossless WebP outputs during production QA.
 
 See [QUALITY_ASSURANCE.md](QUALITY_ASSURANCE.md) for evidence and acceptance

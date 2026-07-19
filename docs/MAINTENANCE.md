@@ -34,6 +34,8 @@
 10. Compare every row against the previous release and confirm only intended
     rows changed.
 11. Run independent visual QA.
+12. When perceived speed is the issue, record which adjacent frames hold the
+    key pose; do not add unsupported manifest timing fields.
 
 ## Updating look directions
 
@@ -74,6 +76,8 @@ Update `VERSION`, `CHANGELOG.md`, `CITATION.cff`, and the Git tag together.
 [ ] contact sheet matches the release atlas
 [ ] previews show the current behavior
 [ ] QA JSON files match the release
+[ ] row-diff evidence confirms only intended rows changed
+[ ] held key poses are readable at native 192x208 size
 [ ] README installation commands are current
 [ ] asset notice and license boundary remain visible
 [ ] CHANGELOG and VERSION are updated

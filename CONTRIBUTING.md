@@ -36,9 +36,11 @@ python scripts/validate_pet.py
 ## Interaction changes
 
 The character should remain composed, intelligent, cool, and restrained.
-Prefer eye, eyebrow, eyelid, head, hair, shoulder, and small posture changes
-over exaggerated body motion. The fixed five-frame hover row must not become
-an airborne celebratory jump.
+Prefer readable head, shoulder, arm, hand, hip, and posture silhouettes over
+facial micro-detail alone. When an action feels too fast, hold its key pose in
+adjacent existing cells; do not change the fixed used-cell counts or invent a
+manifest speed field. The five-frame hover row must keep both feet grounded
+and must not become an airborne celebratory jump.
 
 ## Commit style
 

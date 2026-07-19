@@ -22,12 +22,12 @@ clear silhouettes and large facial landmarks rather than fine micro-detail.
 | 0 | idle | Quiet breathing, blinking, and composed observation. |
 | 1 | running-right | Directional drag/travel toward screen-right. |
 | 2 | running-left | Directional drag/travel toward screen-left. |
-| 3 | waving | Restrained acknowledgement rather than enthusiastic greeting. |
-| 4 | jumping / hover | Pointer notice, grounded micro-flinch, toe-rise/recoil, cool side-eye, recovery. |
-| 5 | failed | Cool reproach, disappointment, or blocked-state reaction. |
-| 6 | waiting | Reserved expectation when user approval or input is required. |
-| 7 | running | Focused work/processing rather than literal locomotion. |
-| 8 | review | Calm inspection and restrained acknowledgement of completed work. |
+| 3 | waving | Restrained acknowledgement with the raised hand held across two frames. |
+| 4 | jumping / hover | Pointer notice, grounded recoil, two-frame guarded side-eye, recovery. |
+| 5 | failed | Arms-crossed cool reproach held long enough to read as a blocked-state reaction. |
+| 6 | waiting | Crossed-arm, hip-shifted expectation held while user approval or input is required. |
+| 7 | running | Focused hand-to-chin work/processing rather than literal locomotion. |
+| 8 | review | Calm inspection followed by a held, restrained approval beat. |
 | 9–10 | look directions | Continuous mouse gaze in sixteen clockwise directions. |
 
 ## Why the hover row has five frames
@@ -42,18 +42,18 @@ registration, not by violating the frame contract.
 ### Five-frame hover acting plan
 
 1. **Notice** — neutral baseline; eyes detect the pointer and one brow changes.
-2. **Micro-flinch** — shoulders rise slightly, body shifts back, heels begin to
-   lift, hair and ribbons lag.
-3. **Peak avoidance** — subtle rise on the toes, cool side-eye, faint
-   involuntary blush; the body never becomes airborne.
-4. **Controlled settle** — heels lower and surprise becomes restrained
-   reproach.
+2. **Grounded recoil** — shoulders draw inward, the upper body shifts back,
+   and the arms begin guarding personal space.
+3. **Guarded side-eye** — chin turns away, eyes narrow toward the intrusion,
+   one hand stays near the chest or opposite arm, and faint blush appears.
+4. **Held side-eye** — almost the same guarded pose remains on screen; only a
+   blink, wrist change, or hair settle occurs.
 5. **Composed recovery** — original baseline returns; blush nearly disappears
    and posture is dignified.
 
-The row uses stable-slot extraction to preserve one-to-two-pixel position
-changes that would otherwise be erased by per-frame recentering. Independent
-playback review confirmed no clipping or size popping.
+Both feet remain planted on the same baseline in every frame. Component-based
+extraction preserves stable scale and placement without the previous
+stable-slot exception.
 
 ![Hover animation](../previews/hover.gif)
 
@@ -90,3 +90,34 @@ status mapping is:
 - **Blocked** → failed row.
 
 The visual design should remain useful and low-distraction during long work.
+
+## Perceived speed and held key poses
+
+Codex owns the animation row timings and used-cell counts. `pet.json` has no
+supported per-action speed field. Slower, clearer acting is therefore achieved
+inside the fixed contract by holding the strongest pose in adjacent frames:
+
+| State | Held frames (zero-based) | Readable beat |
+| --- | --- | --- |
+| waving | 1–2 | shoulder-height acknowledgement |
+| jumping / hover | 2–3 | grounded guarded side-eye |
+| failed | 2–5 | arms-crossed reproach |
+| waiting | 2–4 | impatient needs-input pose |
+| running | 2–4 | focused hand-to-chin work |
+| review | 2–4 | small nod and restrained approval |
+
+The held frames are not required to be pixel copies. A blink, tiny wrist
+change, hair settle, or slight chin recovery keeps the animation alive while
+preserving the same readable silhouette.
+
+## Native-size clarity strategy
+
+The runtime cell remains fixed at `192x208`, so facial readability cannot be
+improved by shipping a larger incompatible atlas. The current art instead:
+
+- fills the safe cell height while preserving normal 6.5–7-head proportions;
+- uses darker, cleaner eye, eyelid, eyebrow, and mouth landmarks;
+- keeps red ribbons, the red bow, and white blazer piping high contrast;
+- separates hands and bent elbows from the dark hair and blazer silhouette;
+- simplifies hair strands, plaid micro-lines, fabric noise, and low-contrast
+  shading that would blur after downsampling.

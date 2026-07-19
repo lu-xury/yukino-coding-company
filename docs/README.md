@@ -5,7 +5,8 @@
 - [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) — project goals, repository
   boundaries, package structure, and runtime flow.
 - [INTERACTION_DESIGN.md](INTERACTION_DESIGN.md) — character interpretation,
-  event-to-animation mapping, hover behavior, and mouse gaze design.
+  event-to-animation mapping, held key poses, native-size clarity, hover
+  behavior, and mouse gaze design.
 - [SPRITE_CONTRACT.md](SPRITE_CONTRACT.md) — exact Codex v2 atlas geometry,
   rows, frame counts, transparency, and manifest fields.
 - [QUALITY_ASSURANCE.md](QUALITY_ASSURANCE.md) — automated and visual quality

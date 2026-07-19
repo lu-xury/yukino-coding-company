@@ -1,6 +1,0 @@
-{
-  "decision": "accept",
-  "state": "jumping",
-  "reason": "Stable-slots preserves the source row's subtle one-to-two-pixel hover recoil and toe-rise. Independent playback review confirmed stable scale, no clipping, and no visible popping.",
-  "reviewed_by": "independent-final-visual-qa-worker"
-}

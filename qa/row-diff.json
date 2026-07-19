@@ -1,0 +1,19 @@
+{
+  "baseline": "work/yukino_hover_repair_run/final/spritesheet-extended.webp",
+  "candidate": "work/yukino_legibility_repair_run/final/spritesheet-extended.webp",
+  "metric": "ImageMagick absolute-error differing pixels",
+  "rows": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 28752,
+    "4": 37198,
+    "5": 58410,
+    "6": 41097,
+    "7": 42283,
+    "8": 40768,
+    "9": 0,
+    "10": 0
+  },
+  "result": "Only targeted action rows 3-8 changed."
+}

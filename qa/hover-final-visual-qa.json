@@ -1,8 +1,0 @@
-{
-  "visual_qa": "pass",
-  "qa_note": "The five-frame loop shows a grounded pointer-triggered flinch, restrained side-eye and blush, controlled recoil, and composed recovery without airborne feet, forbidden effects, clipping, or visible popping.",
-  "improvement": "The new row replaces the old smiling airborne celebratory hop with a subtle, persona-consistent displeased hover response.",
-  "clarity": "pass",
-  "clarity_reason": "Native-size facial, uniform, hand, leg, and shoe details remain crisp, readable, and consistently scaled.",
-  "repair_rows": []
-}
