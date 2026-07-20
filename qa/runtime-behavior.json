@@ -1,0 +1,34 @@
+{
+  "observedAppBuild": {
+    "shortVersion": "26.715.52143",
+    "bundleVersion": "5591"
+  },
+  "nonIdlePlayback": {
+    "repeatCount": 3,
+    "then": "slow idle loop",
+    "manifestOverrideSupported": false,
+    "rule": "action + action + action + slowIdle"
+  },
+  "triggers": {
+    "first-awake": "waving",
+    "pointer-enter-pet": "jumping",
+    "drag-right": "running-right",
+    "drag-left": "running-left",
+    "task-loading": "running",
+    "needs-input-warning": "waiting",
+    "blocked-or-failed-danger": "failed",
+    "completed-unread-success": "review",
+    "no-active-event": "idle",
+    "pointer-around-pet": "look rows 9-10 when look tracking is active"
+  },
+  "threeCopyDurationsMs": {
+    "waving": 2100,
+    "jumping": 2520,
+    "failed": 3660,
+    "waiting": 3030,
+    "running": 2460,
+    "review": 3090,
+    "running-left": 3180,
+    "running-right": 3180
+  }
+}

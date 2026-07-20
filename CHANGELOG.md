@@ -6,11 +6,35 @@ Versioning for repository releases; the installed pet id remains
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-07-20
+
+### Changed
+
+- Rebuilt all six event rows around large native-size silhouettes: formal bow,
+  blushing head-shake refusal, hands-on-hips reprimand, compact crouch,
+  waist-bent inspection, and confident nodding approval.
+- Re-authored hover as a five-frame left-center-right refusal loop that remains
+  natural when Codex repeats the row three times.
+- Used stable-slot extraction for the crouching waiting row so the character
+  does not grow or jump vertically when her body becomes shorter.
+- Added an explicit operation-to-animation table to the Chinese and English
+  READMEs and the interaction design document.
+- Documented the renderer-owned three-repeat rule, fixed per-frame timings, and
+  the lack of a supported repeat-count or speed field in `pet.json`.
+
 ### Fixed
 
 - Updated GitHub Actions to `actions/setup-python@v6` and explicitly pointed
   pip caching at `requirements-dev.txt`, fixing the failed setup step and the
   Node 20 deprecation warning.
+
+### Verified
+
+- Independent native-size visual QA passes all six repaired event rows.
+- Codex v2 atlas validation passes at `1536x2288` with no errors or warnings.
+- Rows 0–2 and 9–10 are pixel-identical to version 1.2.0; only rows 3–8 changed.
+- All hard cardinal blind-direction gates pass; intermediate ambiguity remains
+  recorded as reviewed warnings.
 
 ## [1.2.0] - 2026-07-19
 

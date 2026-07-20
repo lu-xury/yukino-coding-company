@@ -52,6 +52,35 @@ These timings are runtime/preview contract values, not package-level options.
 perceived action while staying compatible, consecutive used cells may hold the
 same key pose with small secondary changes such as a blink or hair settle.
 
+## Runtime repeat behavior
+
+In Codex desktop build `26.715.52143`, every non-idle state is played as three
+complete copies of its row and then falls back to the slow idle loop while the
+state remains unchanged:
+
+```text
+frames = row + row + row + slowIdle
+loopStart = start of slowIdle
+```
+
+This explains why pointer hover appears to play three times. The repeat count
+is owned by the renderer and cannot be changed through `pet.json` or atlas
+metadata. Approximate time spent in the three action copies is:
+
+| State | One row cycle | Three runtime copies |
+| --- | ---: | ---: |
+| waving | 700 ms | 2.10 s |
+| jumping / hover | 840 ms | 2.52 s |
+| failed | 1.22 s | 3.66 s |
+| waiting | 1.01 s | 3.03 s |
+| running | 820 ms | 2.46 s |
+| review | 1.03 s | 3.09 s |
+| running-left / running-right | 1.06 s | 3.18 s |
+
+Because timing and repeat count are fixed, action readability must come from
+large pose changes and repeat-friendly loops rather than unsupported manifest
+fields.
+
 ## Look rows
 
 Row 9:

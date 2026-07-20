@@ -1,19 +1,77 @@
 {
-  "baseline": "work/yukino_hover_repair_run/final/spritesheet-extended.webp",
-  "candidate": "work/yukino_legibility_repair_run/final/spritesheet-extended.webp",
-  "metric": "ImageMagick absolute-error differing pixels",
-  "rows": {
-    "0": 0,
-    "1": 0,
-    "2": 0,
-    "3": 28752,
-    "4": 37198,
-    "5": 58410,
-    "6": 41097,
-    "7": 42283,
-    "8": 40768,
-    "9": 0,
-    "10": 0
-  },
-  "result": "Only targeted action rows 3-8 changed."
+  "ok": true,
+  "old": "/Users/galaxy/Documents/Codex/2026-07-19/new-chat/outputs/yukino-coding-company/pet/spritesheet.webp",
+  "new": "/Users/galaxy/Documents/Codex/2026-07-19/new-chat/work/yukino_expressive_repair_run/final/spritesheet-extended.webp",
+  "expected_changed_rows": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "rows": [
+    {
+      "row": 0,
+      "changed_pixels": 0,
+      "pixel_identical": true
+    },
+    {
+      "row": 1,
+      "changed_pixels": 0,
+      "pixel_identical": true
+    },
+    {
+      "row": 2,
+      "changed_pixels": 0,
+      "pixel_identical": true
+    },
+    {
+      "row": 3,
+      "changed_pixels": 28527,
+      "pixel_identical": false
+    },
+    {
+      "row": 4,
+      "changed_pixels": 37136,
+      "pixel_identical": false
+    },
+    {
+      "row": 5,
+      "changed_pixels": 58544,
+      "pixel_identical": false
+    },
+    {
+      "row": 6,
+      "changed_pixels": 38903,
+      "pixel_identical": false
+    },
+    {
+      "row": 7,
+      "changed_pixels": 53766,
+      "pixel_identical": false
+    },
+    {
+      "row": 8,
+      "changed_pixels": 40768,
+      "pixel_identical": false
+    },
+    {
+      "row": 9,
+      "changed_pixels": 0,
+      "pixel_identical": true
+    },
+    {
+      "row": 10,
+      "changed_pixels": 0,
+      "pixel_identical": true
+    }
+  ],
+  "unchanged_rows_verified": [
+    0,
+    1,
+    2,
+    9,
+    10
+  ]
 }

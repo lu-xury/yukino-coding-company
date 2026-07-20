@@ -80,7 +80,10 @@ The current release has:
 - passing hard cardinal direction blind tests;
 - reviewed intermediate direction warnings;
 - independent approval of all six repaired event-action rows at native size;
-- adjacent-frame key-pose holds that improve perceived speed without changing the runtime contract;
+- large bow, head-shake, hands-on-hips, crouch, waist-bend, and nod silhouettes
+  that remain readable under the fixed runtime timing;
+- documented renderer behavior showing three copies of every non-idle action
+  before the slow idle loop;
 - pixel regression evidence showing that only rows 3–8 changed;
 - pixel-identical PNG and lossless WebP outputs during production QA.
 

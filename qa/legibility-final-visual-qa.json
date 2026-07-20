@@ -1,17 +1,19 @@
 {
+  "ok": true,
   "visual_qa": "pass",
-  "reviewed_by": "independent-final-visual-qa-worker",
-  "summary": "All repaired action rows use clear held key poses while preserving a persona-faithful, visually consistent Yukino.",
-  "native_size": "192x208",
-  "clarity": "Eyes, brows, ribbons, piping, hands, shoes, and whole-body silhouettes remain readable with no clipping or size popping.",
-  "actions": {
-    "waving": "pass: frames 1-2 hold the raised hand",
-    "jumping": "pass: frames 2-3 hold a grounded guarded recoil and never become airborne",
-    "failed": "pass: frames 2-5 hold an arms-crossed reproach",
-    "waiting": "pass: frames 2-4 hold the crossed-arm impatient asking pose",
-    "running": "pass: frames 2-4 hold the focused hand-to-chin pose",
-    "review": "pass: frames 2-4 hold restrained approval and a small nod"
+  "summary": "Yukino remains visually consistent and readable at native size, with coherent expressive actions, stable animation scale, clean transparency, and no visible clipping or residue.",
+  "rows": {
+    "waving": "pass: raised open palm and visible formal bow",
+    "jumping": "pass: repeat-friendly red-faced left-center-right refusal with planted feet",
+    "failed": "pass: both hands on hips and strong forward scolding lean",
+    "waiting": "pass: clear compact crouch and rise with stable-slot scale preservation",
+    "running": "pass: clear waist-bent close inspection, not locomotion",
+    "review": "pass: confident hand-on-hip stance and deliberate approval nod"
   },
-  "accepted_warnings": "Intermediate gaze-axis ambiguity and the 337.5-to-000 continuity diff outlier remain accepted because rows 9-10 are pixel-identical to the previously approved atlas and the labeled loop has stable registration.",
+  "accepted_warnings": [
+    "waiting uses stable-slots extraction; playback remains stable and unclipped",
+    "intermediate direction cues remain subtle but form a coherent ordered loop",
+    "337.5-to-000 continuity metric is a local outlier without a visible snap"
+  ],
   "repair_rows": []
 }

@@ -37,8 +37,9 @@ local pet-generation skill installation.
 | `qa/direction-blind-validation.json` | Three-reviewer blind axis consensus and hard cardinal gates. |
 | `qa/direction-semantics.json` | Labeled verdict for every look direction. |
 | `qa/look-continuity.json` | Adjacent direction metrics and reviewed warnings. |
-| `qa/legibility-final-visual-qa.json` | Independent native-size approval of all six repaired event-action rows. |
+| `qa/legibility-final-visual-qa.json` | Independent native-size approval of all six expressive event-action rows. |
 | `qa/row-diff.json` | Pixel regression proof that only rows 3–8 changed. |
+| `qa/runtime-behavior.json` | Renderer build, trigger mapping, fixed three-repeat rule, and row timings. |
 | `qa/run-summary.json` | Release summary and repair scope. |
 
 ## Current accepted warnings
@@ -66,12 +67,16 @@ failure only when normal-size playback shows a conspicuous defect.
 
 ### Event-action rows
 
-- waving holds the raised hand in frames 1–2;
-- hover holds the guarded side-eye in frames 2–3 and never lifts either foot;
-- failed holds arms-crossed reproach in frames 2–5;
-- waiting holds the needs-input pose in frames 2–4;
-- running holds the focused hand-to-chin pose in frames 2–4;
-- review holds the restrained approval beat in frames 2–4;
+- waving clearly raises an open palm and bends into a formal bow;
+- hover reads as a red-faced left-center-right head shake with a stop palm and
+  never lifts either foot;
+- failed clearly plants both hands on the hips and leans forward to reprimand;
+- waiting visibly lowers into a compact crouch, holds, and rises without scale
+  popping;
+- running bends 25–35 degrees from the waist for close inspection and never
+  becomes literal locomotion;
+- review keeps a confident hand-on-hip silhouette and a deliberate approval
+  nod;
 - facial, uniform, hand, and shoe landmarks remain readable at `192x208`;
 - motion remains smooth, grounded, unclipped, and persona-faithful.
 
@@ -88,5 +93,5 @@ failure only when normal-size playback shows a conspicuous defect.
 
 For a targeted row repair, compare the old and new atlases row by row. Rows
 outside the requested change should be pixel-identical whenever possible.
-The legibility repair release changed only rows 3–8. Rows 0–2 and 9–10 are
-pixel-identical to the previously approved atlas.
+The expressive-action release changed only rows 3–8. Rows 0–2 and 9–10 are
+pixel-identical to version 1.2.0.
