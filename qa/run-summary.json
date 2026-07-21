@@ -2,8 +2,21 @@
   "ok": true,
   "version": "1.3.0",
   "repair": "expressive event actions and documented renderer behavior",
-  "changedRows": [3, 4, 5, 6, 7, 8],
-  "unchangedRows": [0, 1, 2, 9, 10],
+  "changedRows": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "unchangedRows": [
+    0,
+    1,
+    2,
+    9,
+    10
+  ],
   "frameContract": "Codex v2 fixed",
   "runtimeRepeatCount": 3,
   "spriteVersionNumber": 2,
@@ -11,5 +24,6 @@
   "chromaDespill": "qa/chroma-despill.json",
   "visualQa": "qa/legibility-final-visual-qa.json",
   "runtimeBehavior": "qa/runtime-behavior.json",
-  "rowDiff": "qa/row-diff.json"
+  "rowDiff": "qa/row-diff.json",
+  "spritesheetSha256": "539e5c9cfaee25ea5905c95b388da749d9803e045edffc6f45c1a24e2a118d35"
 }

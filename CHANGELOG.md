@@ -6,6 +6,15 @@ Versioning for repository releases; the installed pet id remains
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-07-21
+
+### Changed
+
+- Re-authored all six event-action rows into single slow pose holds with subtle sustained motion, eliminating rapid repetitive multi-looping when played under Codex's three-repeat rule.
+- Slowed perceived action pacing by extending key hold frames and smoothing transitions across row 3 (waving), row 4 (hover), row 5 (failed), row 6 (waiting), row 7 (working), and row 8 (review).
+- Re-rendered all preview GIFs and contact sheet to reflect the slow single-action pose holds.
+
+
 ## [1.3.0] - 2026-07-20
 
 ### Changed
