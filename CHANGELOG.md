@@ -10,10 +10,8 @@ Versioning for repository releases; the installed pet id remains
 
 ### Changed
 
-- Re-authored all six event-action rows into single slow pose holds with subtle sustained motion, eliminating rapid repetitive multi-looping when played under Codex's three-repeat rule.
-- Slowed perceived action pacing by extending key hold frames and smoothing transitions across row 3 (waving), row 4 (hover), row 5 (failed), row 6 (waiting), row 7 (working), and row 8 (review).
-- Re-rendered all preview GIFs and contact sheet to reflect the slow single-action pose holds.
-
+- Upgraded action rows 3–8 to Option C micro-dynamics pose holds: actions instantly enter key poses and hold continuous state without repetitive loop motion, enriched by natural eye blinks, breathing shifts, and subtle gaze micro-movement.
+- Re-rendered all preview GIFs and contact sheet with 220ms slow frame durations to match the refined living hold dynamics.
 
 ## [1.3.0] - 2026-07-20
 

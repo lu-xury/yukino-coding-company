@@ -25,5 +25,5 @@
   "visualQa": "qa/legibility-final-visual-qa.json",
   "runtimeBehavior": "qa/runtime-behavior.json",
   "rowDiff": "qa/row-diff.json",
-  "spritesheetSha256": "539e5c9cfaee25ea5905c95b388da749d9803e045edffc6f45c1a24e2a118d35"
+  "spritesheetSha256": "04bb7576744bc017cdb62356ee35494f39982d43a65d9534dff67863b4ecf0b0"
 }
