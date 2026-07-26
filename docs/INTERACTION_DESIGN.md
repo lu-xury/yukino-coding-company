@@ -24,7 +24,7 @@ not choose which application event activates a state.
 | User or task operation | Runtime state / row | Yukino action |
 | --- | --- | --- |
 | Wake the pet for the first time | `waving`, row 3 | Holds a raised-hand greeting pose with only a tiny blink/bob. |
-| Move the pointer onto the pet | `jumping`, row 4 | Holds a wide-arm, red-face refusal pose (no multi-cycle head-shake). |
+| Move the pointer onto the pet | `jumping`, row 4 | Blushes and moves through left stop hand, center arm fold, right stop hand, and a matched standing recovery. |
 | Drag the pet toward screen-right | `running-right`, row 1 | Runs toward screen-right while being dragged. |
 | Drag the pet toward screen-left | `running-left`, row 2 | Runs toward screen-left while being dragged. |
 | Move the pointer around the pet while look tracking is active | rows 9–10 | Eyes, head, neck, and hair follow the pointer through sixteen directions. |
@@ -78,10 +78,12 @@ registration, not by violating the frame contract.
 
 ### Five-frame hover acting plan
 
-All five used cells preserve the same dominant bent-knee, raised-arm refusal
-silhouette. Any adjacent-frame change is limited to tiny eye, hair, or breathing
-settles; the action no longer depends on a multi-step head shake that becomes
-unclear at native size.
+1. **Anticipation** — blushes with both hands held clearly near the chest.
+2. **Left stop** — turns slightly and presents one large stop palm.
+3. **Center fold** — returns through center with both arms visibly gathered.
+4. **Right stop** — presents the matching stop palm on the other side.
+5. **Recovery** — returns to the same chest-level anticipation pose so the
+   following idle frame does not create a full-body hard cut.
 
 ![Hover animation](../previews/hover.gif)
 
@@ -133,7 +135,7 @@ silhouettes:
 | State | Dominant readable silhouette |
 | --- | --- |
 | waving | raised open palm plus visible formal bow |
-| jumping / hover | red-faced left–center–right head shake with stop palm |
+| jumping / hover | red-faced left stop, center arm fold, right stop, recovery |
 | failed | lowered head, drooped shoulders, and both arms hanging |
 | waiting | compact low crouch with an open waiting/thinking palm |
 | running | 25–35 degree waist bend for close inspection |

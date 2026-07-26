@@ -22,6 +22,13 @@ Versioning for repository releases; the installed pet id remains
 - Documented the macOS Files and Folders permission reset that can follow an
   application-signature change.
 
+### Fixed
+
+- Replaced the hover row's four near-identical frames plus abrupt final swap
+  with a continuous five-stage standing refusal: anticipation, left stop,
+  center arm fold, right stop, and matched recovery.
+- Preserved every atlas row except row 4 during the targeted hover repair.
+
 ## [1.5.0] - 2026-07-25
 
 ### Changed

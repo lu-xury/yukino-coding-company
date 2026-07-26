@@ -2,7 +2,7 @@
 
 [中文说明](README.md) · [Installation](docs/INSTALLATION.md) · [Interaction design](docs/INTERACTION_DESIGN.md)
 
-An unofficial, non-commercial Yukinoshita Yukino-inspired animated pet for Codex. It uses the Codex v2 8×11 sprite contract and normal anime proportions, with large pose-hold event silhouettes readable at native size: raised-hand greeting, bent-knee refusal, head-down failure, crouched open-palm waiting, waist-bent inspection, and an arms-crossed peace-sign finish.
+An unofficial, non-commercial Yukinoshita Yukino-inspired animated pet for Codex. It uses the Codex v2 8×11 sprite contract and normal anime proportions, with readable event acting at native size: raised-hand greeting, a five-stage left/center/right stop-hand refusal, head-down failure, crouched open-palm waiting, waist-bent inspection, and an arms-crossed peace-sign finish.
 
 ## Install with a coding agent
 
@@ -60,7 +60,7 @@ Codex controls the fixed row timing and repeat count. The pet cannot change thos
 | Operation or task status | State | Yukino action |
 | --- | --- | --- |
 | First wake | `waving` | Holds a raised-hand greeting pose. |
-| Pointer enters the pet | `jumping / hover` | Holds a wide-arm refusal pose. |
+| Pointer enters the pet | `jumping / hover` | Moves through anticipation, left stop hand, center arm fold, right stop hand, and a matched standing recovery. |
 | Drag right / left | `running-right` / `running-left` | Runs in the drag direction. |
 | Pointer moves around the pet | look rows | Eyes, head, neck, and hair follow sixteen directions. |
 | Task is actively working | `running` | Holds a deep waist-bent inspection pose. |

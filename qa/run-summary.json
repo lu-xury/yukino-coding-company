@@ -1,19 +1,19 @@
 {
   "ok": true,
   "version": "1.5.0",
-  "repair": "Large pose-hold event rows 3-8 for slower perceived once-play under fixed 3x renderer loop",
+  "repair": "Targeted row 4 hover transition repair with five continuous standing stages",
   "changedRows": [
-    3,
-    4,
-    5,
-    6,
-    7,
-    8
+    4
   ],
   "unchangedRows": [
     0,
     1,
     2,
+    3,
+    5,
+    6,
+    7,
+    8,
     9,
     10
   ],
@@ -27,10 +27,10 @@
   "runtimeBehavior": "qa/runtime-behavior.json",
   "runtimeShowcase": "previews/runtime-patched-showcase.gif",
   "rowDiff": "qa/row-diff.json",
-  "spritesheetSha256": "3d5e296a5d176caeaa5b804ee001aeffc7a1f1680b4e651721dae5e42440aef0",
+  "spritesheetSha256": "acd11c787cb03d3536d5dba79f2e61d9df935cf69138e452a9dc54ec51fd982a",
   "actions": {
     "waving": "raised-hand greeting hold",
-    "jumping": "wide-arm refusal hold",
+    "jumping": "five-stage standing refusal with matched anticipation and recovery",
     "failed": "head-down drooped-shoulder failure hold",
     "waiting": "open-palm crouch wait/thinking hold",
     "running": "waist-bent inspection hold",

@@ -1,61 +1,42 @@
 {
+  "baselineCommit": "6e4b943",
+  "sourceCommit": "a28a540",
   "changedRows": [
-    3,
-    4,
-    5,
-    6,
-    7,
-    8
+    4
   ],
   "unchangedRows": [
     0,
     1,
     2,
+    3,
+    5,
+    6,
+    7,
+    8,
     9,
     10
   ],
-  "meanFrameDiffs": {
-    "waving": [
-      0.163,
-      0.163,
-      2.484
-    ],
-    "jumping": [
-      0.0,
-      0.173,
-      0.173,
-      4.374
-    ],
-    "failed": [
-      0.0,
-      0.147,
-      0.147,
-      0.0,
-      3.045,
-      3.045,
-      0.161
-    ],
-    "waiting": [
-      0.0,
-      0.449,
-      0.449,
-      5.049,
-      5.049
-    ],
-    "running": [
-      0.0,
-      0.101,
-      0.101,
-      3.909,
-      3.909
-    ],
-    "review": [
-      0.0,
-      0.198,
-      0.198,
-      2.961,
-      2.961
-    ]
-  },
-  "strategy": "single keyframe pose-hold with micro blink/bob only"
+  "jumpingFrameDiffs": [
+    {
+      "transition": "0->1",
+      "changedPixels": 8064,
+      "meanAbsDiff": 9.429
+    },
+    {
+      "transition": "1->2",
+      "changedPixels": 7947,
+      "meanAbsDiff": 9.685
+    },
+    {
+      "transition": "2->3",
+      "changedPixels": 8033,
+      "meanAbsDiff": 9.684
+    },
+    {
+      "transition": "3->4",
+      "changedPixels": 7924,
+      "meanAbsDiff": 9.136
+    }
+  ],
+  "strategy": "five-stage standing refusal with matching anticipation and recovery poses"
 }

@@ -1,10 +1,10 @@
 {
   "ok": true,
   "visual_qa": "pass",
-  "summary": "Event rows use large native-size pose holds so stock three-copy playback reads as one sustained slow action. Crouch wait, bend-inspect, bent-knee refusal, head-down failure, and foreground victory hand are readable at 192x208.",
+  "summary": "The targeted hover repair now has five distinct standing stages with stable scale and baseline. Left stop, center arm fold, right stop, and matched recovery are readable at 192x208 without an abrupt full-body swap.",
   "rows": {
     "waving": "pass: raised-hand greeting hold",
-    "jumping": "pass: wide-arm refusal hold",
+    "jumping": "pass: continuous five-stage standing refusal",
     "failed": "pass: head-down drooped-shoulder failure hold",
     "waiting": "pass: crouch wait/thinking hold",
     "running": "pass: waist-bent inspection hold",
@@ -16,11 +16,6 @@
     "review victory hand was assembled locally due to image-generation network unavailability; silhouette is exaggerated for readability"
   ],
   "repair_rows": [
-    3,
-    4,
-    5,
-    6,
-    7,
-    8
+    4
   ]
 }

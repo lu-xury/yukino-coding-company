@@ -69,8 +69,8 @@ failure only when normal-size playback shows a conspicuous defect.
 ### Event-action rows
 
 - waving clearly raises an open palm and bends into a formal bow;
-- hover reads as a red-faced left-center-right head shake with a stop palm and
-  never lifts either foot;
+- hover uses five distinct standing stages with stable scale and baseline:
+  anticipation, left stop, center arm fold, right stop, and recovery;
 - failed clearly lowers the head and shoulders with both arms hanging;
 - waiting visibly lowers into a compact crouch, holds, and rises without scale
   popping;
