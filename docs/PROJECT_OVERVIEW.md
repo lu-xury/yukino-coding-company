@@ -80,7 +80,8 @@ The current release has:
 - passing hard cardinal direction blind tests;
 - reviewed intermediate direction warnings;
 - independent approval of all six repaired event-action rows at native size;
-- large bow, head-shake, hands-on-hips, crouch, waist-bend, and nod silhouettes
+- raised-hand, bent-knee refusal, head-down failure, open-palm crouch,
+  waist-bend, and foreground peace-sign silhouettes
   that remain readable under the fixed runtime timing;
 - documented renderer behavior showing three copies of every non-idle action
   before the slow idle loop;

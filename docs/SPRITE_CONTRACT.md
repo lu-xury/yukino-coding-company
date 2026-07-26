@@ -54,7 +54,7 @@ same key pose with small secondary changes such as a blink or hair settle.
 
 ## Runtime repeat behavior
 
-In Codex desktop build `26.715.52143`, every non-idle state is played as three
+In stock Codex desktop build `26.721.41059`, every non-idle state is played as three
 complete copies of its row and then falls back to the slow idle loop while the
 state remains unchanged:
 
@@ -77,9 +77,14 @@ metadata. Approximate time spent in the three action copies is:
 | review | 1.03 s | 3.09 s |
 | running-left / running-right | 1.06 s | 3.18 s |
 
-Because timing and repeat count are fixed, action readability must come from
-large pose changes and repeat-friendly loops rather than unsupported manifest
-fields.
+The optional macOS runtime patch in `scripts/patch_codex_pet_runtime.py` changes
+this specific build to one row cycle with all non-idle frame durations doubled,
+then enters the same slow idle loop. The atlas dimensions, used cells, and
+manifest remain unchanged.
+
+`scripts/generate_runtime_showcase.py` renders these patched timings directly
+from the final atlas into `previews/runtime-patched-showcase.gif`; each panel's
+character area remains the native `192x208` cell size.
 
 ## Look rows
 

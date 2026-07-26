@@ -1,8 +1,5 @@
 {
-  "ok": true,
-  "old": "/Users/galaxy/Documents/Codex/2026-07-19/new-chat/outputs/yukino-coding-company/pet/spritesheet.webp",
-  "new": "/Users/galaxy/Documents/Codex/2026-07-19/new-chat/work/yukino_expressive_repair_run/final/spritesheet-extended.webp",
-  "expected_changed_rows": [
+  "changedRows": [
     3,
     4,
     5,
@@ -10,68 +7,55 @@
     7,
     8
   ],
-  "rows": [
-    {
-      "row": 0,
-      "changed_pixels": 0,
-      "pixel_identical": true
-    },
-    {
-      "row": 1,
-      "changed_pixels": 0,
-      "pixel_identical": true
-    },
-    {
-      "row": 2,
-      "changed_pixels": 0,
-      "pixel_identical": true
-    },
-    {
-      "row": 3,
-      "changed_pixels": 28527,
-      "pixel_identical": false
-    },
-    {
-      "row": 4,
-      "changed_pixels": 37136,
-      "pixel_identical": false
-    },
-    {
-      "row": 5,
-      "changed_pixels": 58544,
-      "pixel_identical": false
-    },
-    {
-      "row": 6,
-      "changed_pixels": 38903,
-      "pixel_identical": false
-    },
-    {
-      "row": 7,
-      "changed_pixels": 53766,
-      "pixel_identical": false
-    },
-    {
-      "row": 8,
-      "changed_pixels": 40768,
-      "pixel_identical": false
-    },
-    {
-      "row": 9,
-      "changed_pixels": 0,
-      "pixel_identical": true
-    },
-    {
-      "row": 10,
-      "changed_pixels": 0,
-      "pixel_identical": true
-    }
-  ],
-  "unchanged_rows_verified": [
+  "unchangedRows": [
     0,
     1,
     2,
     9,
     10
-  ]
+  ],
+  "meanFrameDiffs": {
+    "waving": [
+      0.163,
+      0.163,
+      2.484
+    ],
+    "jumping": [
+      0.0,
+      0.173,
+      0.173,
+      4.374
+    ],
+    "failed": [
+      0.0,
+      0.147,
+      0.147,
+      0.0,
+      3.045,
+      3.045,
+      0.161
+    ],
+    "waiting": [
+      0.0,
+      0.449,
+      0.449,
+      5.049,
+      5.049
+    ],
+    "running": [
+      0.0,
+      0.101,
+      0.101,
+      3.909,
+      3.909
+    ],
+    "review": [
+      0.0,
+      0.198,
+      0.198,
+      2.961,
+      2.961
+    ]
+  },
+  "strategy": "single keyframe pose-hold with micro blink/bob only"
 }

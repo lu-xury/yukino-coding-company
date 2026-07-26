@@ -18,27 +18,27 @@ clear silhouettes and large facial landmarks rather than fine micro-detail.
 ## Operation-to-animation mapping
 
 The mapping below describes observable Codex desktop behavior in app build
-`26.715.52143`. A custom pet supplies artwork for fixed runtime states; it does
+`26.721.41059`. A custom pet supplies artwork for fixed runtime states; it does
 not choose which application event activates a state.
 
 | User or task operation | Runtime state / row | Yukino action |
 | --- | --- | --- |
-| Wake the pet for the first time | `waving`, row 3 | Raises an open hand and makes a small formal bow. |
-| Move the pointer onto the pet | `jumping`, row 4 | Blushes, raises a stop palm, and shakes her head left–center–right in refusal. |
+| Wake the pet for the first time | `waving`, row 3 | Holds a raised-hand greeting pose with only a tiny blink/bob. |
+| Move the pointer onto the pet | `jumping`, row 4 | Holds a wide-arm, red-face refusal pose (no multi-cycle head-shake). |
 | Drag the pet toward screen-right | `running-right`, row 1 | Runs toward screen-right while being dragged. |
 | Drag the pet toward screen-left | `running-left`, row 2 | Runs toward screen-left while being dragged. |
 | Move the pointer around the pet while look tracking is active | rows 9–10 | Eyes, head, neck, and hair follow the pointer through sixteen directions. |
-| A task is actively loading or working | `running`, row 7 | Bends clearly from the waist to inspect the work below and in front of her. |
-| Codex needs approval, an answer, or other user input | `waiting`, row 6 | Lowers into a compact crouch and waits with her cheek supported by one hand. |
-| A task is blocked or fails | `failed`, row 5 | Plants both hands on her hips and leans forward in a stern reprimand. |
-| Work completes and has unread output ready | `review`, row 8 | Straightens confidently, keeps one hand on her hip, and gives a deliberate approving nod. |
+| A task is actively loading or working | `running`, row 7 | Holds a deep waist-bent close-inspection pose while the task runs. |
+| Codex needs approval, an answer, or other user input | `waiting`, row 6 | Holds a compact crouch wait/thinking pose until input arrives. |
+| A task is blocked or fails | `failed`, row 5 | Holds a head-down, drooped-shoulder failure pose with both arms hanging clearly. |
+| Work completes and has unread output ready | `review`, row 8 | Holds an arms-crossed stance with a large foreground victory/peace hand. |
 | No event state is active | `idle`, row 0 | Quiet breathing, blinking, and composed observation. |
 
 Status rows may be easy to miss if the task transition happens while the pet
 is covered, off-screen, or unattended. Codex starts the action when the state
 changes; it does not wait for the user to look at the pet.
 
-## Why event actions play three times
+## Stock playback and the optional runtime patch
 
 The desktop renderer deliberately expands every non-idle row into three copies
 of the same frame sequence and then switches to the slow idle loop. In compact
@@ -49,10 +49,23 @@ non-idle state = action + action + action + slow idle loop
 ```
 
 This is application behavior, not three duplicated animations inside this
-spritesheet. `pet.json` has no supported repeat-count or per-frame-speed field,
-so a custom pet cannot request one play. The hover row is therefore authored as
-a repeat-friendly head-shake loop; three repeats read as one sustained refusal
-rather than three unrelated gestures.
+spritesheet. `pet.json` has no supported repeat-count or per-frame-speed field.
+
+For macOS build `26.721.41059` (`5848`), the repository's optional runtime
+patch changes the renderer rule to:
+
+```text
+non-idle state = action at 2x frame duration + slow idle loop
+```
+
+The patch is version-locked, updates the target ASAR file and integrity hashes,
+and creates a restorable backup. It does not alter the atlas contract.
+
+![Patched single-play runtime showcase](../previews/runtime-patched-showcase.gif)
+
+The showcase is generated directly from the final atlas. Each panel retains a
+native `192x208` character area, runs one action cycle at `2x` frame duration,
+and then displays the idle frame rather than restarting the gesture.
 
 ## Why the hover row has five frames
 
@@ -65,23 +78,16 @@ registration, not by violating the frame contract.
 
 ### Five-frame hover acting plan
 
-1. **Blushing center** — shoulders tense and both hands draw toward the chest.
-2. **No, left** — eyes close, the head turns screen-left, and one palm clearly
-   signals stop.
-3. **Center crossing** — the chin lowers through center while the arms guard
-   the torso.
-4. **No, right** — the head turns screen-right with the same stop palm.
-5. **Refusal hold** — red-faced arms-crossed refusal returns to center and
-   connects cleanly to the first frame.
-
-Both feet remain planted on the same baseline in every frame. Component-based
-extraction preserves stable scale and placement without the previous
-stable-slot exception.
+All five used cells preserve the same dominant bent-knee, raised-arm refusal
+silhouette. Any adjacent-frame change is limited to tiny eye, hair, or breathing
+settles; the action no longer depends on a multi-step head shake that becomes
+unclear at native size.
 
 ![Hover animation](../previews/hover.gif)
 
-The documentation GIF shows one five-frame row cycle. Codex desktop repeats
-that cycle three times when the pointer enters the pet.
+The documentation GIF shows one five-frame row cycle. Stock Codex repeats that
+cycle three times; the optional supported-build patch plays it once at twice
+the stock frame duration.
 
 ## Mouse-look mechanics
 
@@ -120,17 +126,18 @@ The visual design should remain useful and low-distraction during long work.
 ## Perceived speed and clear silhouettes
 
 Codex owns the animation row timings and used-cell counts. `pet.json` has no
-supported per-action speed or repeat-count field. Clear acting is therefore
-achieved with large, repeat-friendly full-body silhouettes:
+supported per-action speed or repeat-count field. The optional runtime patch is
+outside the pet manifest, so clear acting still relies on large full-body
+silhouettes:
 
 | State | Dominant readable silhouette |
 | --- | --- |
 | waving | raised open palm plus visible formal bow |
 | jumping / hover | red-faced left–center–right head shake with stop palm |
-| failed | both hands on hips plus forward scolding lean |
-| waiting | compact low crouch with one hand supporting the cheek |
+| failed | lowered head, drooped shoulders, and both arms hanging |
+| waiting | compact low crouch with an open waiting/thinking palm |
 | running | 25–35 degree waist bend for close inspection |
-| review | confident hand-on-hip stance plus deliberate nod |
+| review | arms-crossed stance plus oversized foreground peace hand |
 
 The silhouette is intentionally much larger than the facial cue. A blink,
 eyebrow change, hair settle, or blush supports the pose but never carries the

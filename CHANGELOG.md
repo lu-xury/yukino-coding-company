@@ -6,6 +6,48 @@ Versioning for repository releases; the installed pet id remains
 
 ## [Unreleased]
 
+### Added
+
+- Added a version-locked macOS Codex `26.721.41059` runtime patcher with
+  integrity updates, automatic backups, status checks, and restoration.
+- Added a reproducible native-size animated showcase generated directly from
+  the final atlas using the patched one-cycle, `2x`-duration timing.
+
+### Changed
+
+- Patched interaction playback uses one action cycle at twice the stock frame
+  duration before returning to the slow idle loop.
+- Updated installation and interaction documentation to distinguish stock
+  renderer behavior from the optional runtime patch.
+- Documented the macOS Files and Folders permission reset that can follow an
+  application-signature change.
+
+## [1.5.0] - 2026-07-25
+
+### Changed
+
+- Rebuilt event rows 3–8 as large-silhouette **pose holds** (raised-hand greeting,
+  bent-knee hover refusal, head-down failure, open-palm crouch wait, waist-bent
+  inspection, and arms-crossed peace-sign finish) so Codex's stock three-copy
+  playback reads as one sustained slow action instead of restarted gestures.
+- Strengthened native-size readability for low-resolution pet cells with broader
+  full-body silhouettes, especially crouch-wait and bend-to-inspect.
+- Regenerated motion previews and contact sheet for the repaired rows.
+
+### Notes
+
+- `pet.json` still has no supported speed or repeat-count field; timing and the
+  three-copy rule remain renderer-owned.
+- Rows 0–2 and 9–10 are unchanged from 1.4.0. Row 8 review is a raised
+  victory/peace-hand hold assembled for native-size readability under imagegen
+  network unavailability.
+
+### Verified
+
+- `python scripts/validate_pet.py` passes.
+- Codex v2 atlas validation passes at `1536x2288` with zero transparent RGB residue.
+- Only rows 3–7 differ from the previous packaged atlas.
+
 ## [1.4.0] - 2026-07-21
 
 ### Changed

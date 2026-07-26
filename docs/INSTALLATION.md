@@ -37,6 +37,18 @@ Requirements:
 The pet itself does not execute Python. Python is only used to validate the
 repository before installation.
 
+## macOS convenience installer
+
+Double-click `Install Yukino Pet.command`, or run the pet-only installer:
+
+```bash
+./install-to-codex.sh
+```
+
+The double-click entry installs the pet and then asks whether to apply the
+version-locked single-play runtime patch. The shell installer only copies and
+verifies `pet.json` and `spritesheet.webp`.
+
 ## Clone
 
 SSH:
@@ -107,6 +119,57 @@ Copy-Item pet\spritesheet.webp (Join-Path $petDir "spritesheet.webp") -Force
 Get-FileHash pet\spritesheet.webp -Algorithm SHA256
 Get-FileHash (Join-Path $petDir "spritesheet.webp") -Algorithm SHA256
 ```
+
+## Optional macOS single-play runtime patch
+
+The v2 pet manifest cannot control animation speed or repeat count. Stock Codex
+desktop expands each non-idle row into three copies. For macOS Codex build
+`26.721.41059` (`5848`), this repository includes a version-locked patch that:
+
+- changes interaction playback from three row copies to one;
+- doubles each non-idle frame duration;
+- preserves the slow idle loop after the interaction finishes;
+- updates Electron ASAR integrity metadata;
+- creates a full backup before writing.
+
+Check compatibility, then apply:
+
+```bash
+python3 scripts/patch_codex_pet_runtime.py check
+python3 scripts/patch_codex_pet_runtime.py apply --acknowledge-signature-change
+```
+
+This modifies the installed application bundle, so the vendor code signature
+will no longer remain unchanged. Do not apply it in environments that require
+the original signed application. The explicit acknowledgement flag prevents
+accidental writes.
+
+macOS may treat the modified bundle as a changed application identity and reset
+its **Files and Folders** permissions. If Codex can no longer open a workspace
+under Documents after restart, re-authorize Codex in **System Settings > Privacy
+& Security > Files and Folders**, or restore the stock renderer before continuing
+repository work.
+
+The backup is stored under:
+
+```text
+~/.codex/backups/yukino-pet-runtime/26.721.41059-5848/
+```
+
+Restore the stock renderer with:
+
+```bash
+python3 scripts/patch_codex_pet_runtime.py restore
+```
+
+Fully restart Codex after applying or restoring. The patch refuses unknown
+versions; after a Codex update, run `check` again rather than forcing the old
+patch onto a new application bundle. This patch is macOS desktop-specific and
+does not change Codex CLI animation behavior.
+
+The expected patched playback is shown in
+`previews/runtime-patched-showcase.gif`. Regenerate it directly from the final
+atlas with `python scripts/generate_runtime_showcase.py`.
 
 ## Select and wake the pet
 

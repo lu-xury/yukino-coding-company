@@ -1,19 +1,26 @@
 {
   "ok": true,
   "visual_qa": "pass",
-  "summary": "Yukino remains visually consistent and readable at native size, with coherent expressive actions, stable animation scale, clean transparency, and no visible clipping or residue.",
+  "summary": "Event rows use large native-size pose holds so stock three-copy playback reads as one sustained slow action. Crouch wait, bend-inspect, bent-knee refusal, head-down failure, and foreground victory hand are readable at 192x208.",
   "rows": {
-    "waving": "pass: raised open palm and visible formal bow",
-    "jumping": "pass: repeat-friendly red-faced left-center-right refusal with planted feet",
-    "failed": "pass: both hands on hips and strong forward scolding lean",
-    "waiting": "pass: clear compact crouch and rise with stable-slot scale preservation",
-    "running": "pass: clear waist-bent close inspection, not locomotion",
-    "review": "pass: confident hand-on-hip stance and deliberate approval nod"
+    "waving": "pass: raised-hand greeting hold",
+    "jumping": "pass: wide-arm refusal hold",
+    "failed": "pass: head-down drooped-shoulder failure hold",
+    "waiting": "pass: crouch wait/thinking hold",
+    "running": "pass: waist-bent inspection hold",
+    "review": "pass: raised victory/peace-hand + hip hold"
   },
   "accepted_warnings": [
-    "waiting uses stable-slots extraction; playback remains stable and unclipped",
-    "intermediate direction cues remain subtle but form a coherent ordered loop",
-    "337.5-to-000 continuity metric is a local outlier without a visible snap"
+    "Stock renderer plays non-idle rows three times; the optional version-locked macOS patch is outside the pet manifest",
+    "pet.json has no speed/repeat fields",
+    "review victory hand was assembled locally due to image-generation network unavailability; silhouette is exaggerated for readability"
   ],
-  "repair_rows": []
+  "repair_rows": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
 }

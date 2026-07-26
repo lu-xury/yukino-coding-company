@@ -2,12 +2,18 @@
 
 [English](README.en.md) · [安装指南](docs/INSTALLATION.md) · [交互设计](docs/INTERACTION_DESIGN.md) · [动画协议](docs/SPRITE_CONTRACT.md) · [维护手册](docs/MAINTENANCE.md)
 
-一个非官方、非商业的雪之下雪乃风格 Codex v2 动态宠物项目。它采用正常动漫人体比例与 galgame 式表演，但把事件动作改成在原生尺寸下一眼能懂的全身姿态：红脸摇头拒绝、叉腰前倾责备、蹲下等待、弯腰专注，以及手扶腰点头认可。
+一个非官方、非商业的雪之下雪乃风格 Codex v2 动态宠物项目。它采用正常动漫人体比例与 galgame 式表演，但把事件动作改成在原生尺寸下一眼能懂的全身姿态：举手致意、屈膝张臂拒触、低头垂肩失败、蹲下托掌等待、弯腰检查，以及叉臂举起✌️完成。
 
 > [!IMPORTANT]
 > 这是同人衍生项目，与 OpenAI、渡航、小学馆、动画制作委员会及相关权利方均无官方关联。角色与原作相关权利归各自权利方所有。仓库中的代码和文档可按 MIT 条款使用；角色衍生精灵图不在 MIT 授权范围内，详见 [ASSET_NOTICE.md](ASSET_NOTICE.md) 与 [LICENSE](LICENSE)。
 
 ![完整动画接触表](previews/contact-sheet.png)
+
+## 单次慢速运行效果
+
+![单次慢速交互动画总览](previews/runtime-patched-showcase.gif)
+
+这张合并动画直接从最终 `pet/spritesheet.webp` 生成。六个事件动作均按运行时补丁的真实规则展示：动作序列只播放一轮、每帧时长为原生 Codex 的 2 倍，动作完成后切回待机。网格中的每个宠物区域保持原生 `192x208`，没有放大来掩盖低分辨率表现。
 
 ## 使用 Coding Agent 安装（推荐）
 
@@ -35,6 +41,14 @@
 ```
 
 ## 手动安装
+
+macOS 可直接双击 `Install Yukino Pet.command`，或在终端运行：
+
+```bash
+./install-to-codex.sh
+```
+
+双击入口会在安装宠物后询问是否应用版本锁定的单次慢速运行时补丁；shell 安装器本身只复制并校验宠物文件。
 
 ### 1. 克隆仓库
 
@@ -103,6 +117,23 @@ Copy-Item pet\spritesheet.webp (Join-Path $dest "spritesheet.webp") -Force
 └── spritesheet.webp
 ```
 
+### 3.1 macOS 单次慢速补丁（Codex 26.721.41059）
+
+`pet.json` 本身不能控制速度或重复次数。此仓库提供一个严格锁定版本、可恢复的本地补丁：把非待机动作从三轮改为一轮，并把每帧时长变为原来的 2 倍。
+
+```bash
+python3 scripts/patch_codex_pet_runtime.py check
+python3 scripts/patch_codex_pet_runtime.py apply --acknowledge-signature-change
+```
+
+该操作会修改已安装的应用包，因此厂商代码签名将不再保持原状，macOS 也可能要求重新授予 Codex 的“文件与文件夹”权限。补丁会先把原始 `Info.plist` 和 `app.asar` 备份到 `~/.codex/backups/yukino-pet-runtime/`，遇到其它 Codex 版本会拒绝写入。恢复命令：
+
+```bash
+python3 scripts/patch_codex_pet_runtime.py restore
+```
+
+应用补丁或恢复后都需要完全重启 Codex。Codex 自动更新后应先运行 `check`，不要强行套用旧版本补丁。
+
 ### 4. 在 Codex 中打开宠物
 
 Codex / ChatGPT 桌面端：
@@ -131,37 +162,43 @@ Codex CLI：
 - 正常 6.5–7 头身动漫比例，不使用 Q 版或卡通小人造型。
 - 九类标准状态：待机、左右移动、招手、悬停反应、失败、等待、工作、审阅。
 - 16 个顺时针鼠标视线方向，眼睛与头颈主导，躯干保持 galgame 式稳定。
-- 悬停采用五帧红脸摇头：居中、左转、回中、右转、抱臂拒绝；全程双脚着地。
-- 当前桌面端会把非待机动作固定播放三遍，`pet.json` 无法修改重复次数或逐帧速度。
-- 事件语义主要由鞠躬、叉腰前倾、蹲下、弯腰和扶腰点头等全身轮廓表达，而不是依赖难以辨认的微表情。
+- 悬停采用五帧屈膝张臂拒触定格，以大轮廓代替低分辨率下难辨认的细小摇头动作。
+- 原生桌面端会把非待机动作固定播放三遍；macOS 26.721.41059 可使用仓库内的版本锁定补丁改为单次播放并将帧时长放慢 2 倍。
+- 事件语义主要由举手、屈膝张臂、低头垂肩、蹲下托掌、弯腰和叉臂✌️等全身轮廓表达，而不是依赖难以辨认的微表情。
 - 原生 `192x208` 清晰度通过高对比眼眉、发饰、制服滚边、手部和鞋子轮廓，以及简化碎小纹理来保证。
 - WebP 使用无损 RGBA；最终产物与 PNG 像素一致。
 - 色键清理、图集结构、盲方向测试和独立视觉 QA 均已通过。
 
 ![悬停动画](previews/hover.gif)
 
-> 预览 GIF 只展示一轮图集动作，便于检查每一帧；Codex 桌面端实际会按上文所述重复三轮。
+> 预览 GIF 只展示一轮图集动作，便于检查每一帧；原生 Codex 会重复三轮，应用本仓库补丁后只播放一轮。
+
+合并运行效果可通过以下命令从最终图集重新生成：
+
+```bash
+python scripts/generate_runtime_showcase.py
+```
 
 ## 什么操作会触发什么动作
 
 | 操作或任务状态 | Codex 动画行 | 雪乃的动作 |
 | --- | --- | --- |
-| 第一次唤醒宠物 | `waving` | 抬起手掌并做一次克制的正式鞠躬。 |
-| 鼠标进入宠物区域 | `jumping / hover` | 脸红、抬手制止，并从左到右摇头拒绝。 |
+| 第一次唤醒宠物 | `waving` | 保持举手致意定格（仅轻微眨眼/呼吸）。 |
+| 鼠标进入宠物区域 | `jumping / hover` | 保持张臂拒触定格（不再循环摇头）。 |
 | 向右拖动宠物 | `running-right` | 朝屏幕右侧奔跑。 |
 | 向左拖动宠物 | `running-left` | 朝屏幕左侧奔跑。 |
 | 鼠标在宠物周围移动 | `look directions` | 眼睛、头颈和头发按 16 个方向追随指针。 |
-| 任务正在执行 | `running` | 从腰部明显弯下，专注查看前下方的工作。 |
-| Codex 等待批准、回答或其他输入 | `waiting` | 蹲下来，一手托腮等待。 |
-| 任务失败或被阻塞 | `failed` | 双手叉腰并前倾责备。 |
-| 任务完成且有未读结果 | `review` | 挺直身体，一手扶腰并明确点头认可。 |
+| 任务正在执行 | `running` | 保持明显弯腰检查定格。 |
+| Codex 等待批准、回答或其他输入 | `waiting` | 保持蹲下等待/思考定格。 |
+| 任务失败或被阻塞 | `failed` | 保持低头垂肩、双臂下垂的明确失败姿态。 |
+| 任务完成且有未读结果 | `review` | 保持叉臂站姿并举起前景✌️完成手势。 |
 | 没有活动事件 | `idle` | 安静呼吸、眨眼和观察。 |
 
-当前桌面端会把每个非待机动作固定播放三遍，然后进入慢速待机；所以悬停看到三遍不是图集重复错误。宠物清单没有可用的“只播放一次”或自定义帧时长字段。本项目把悬停设计为可自然重复的红脸摇头，并用大幅全身姿势提升可读性。技术证据、逐行时长和完整映射见 [交互动作设计](docs/INTERACTION_DESIGN.md) 与 [动画协议](docs/SPRITE_CONTRACT.md)。
+原生桌面端会把每个非待机动作固定播放三遍，然后进入慢速待机；宠物清单没有可用的“只播放一次”或自定义帧时长字段。本仓库针对 macOS Codex 26.721.41059 提供可恢复的运行时补丁，使交互动作只播放一轮并将帧时长放慢 2 倍。技术证据、逐行时长和完整映射见 [交互动作设计](docs/INTERACTION_DESIGN.md)、[动画协议](docs/SPRITE_CONTRACT.md) 与 [安装指南](docs/INSTALLATION.md)。
 
-| 招呼 | 失败责备 | 等待输入 |
+| 招呼 | 失败 / 受阻 | 等待输入 |
 | --- | --- | --- |
-| ![克制招呼](previews/waving.gif) | ![失败责备](previews/failed.gif) | ![等待输入](previews/waiting.gif) |
+| ![克制招呼](previews/waving.gif) | ![失败受阻](previews/failed.gif) | ![等待输入](previews/waiting.gif) |
 
 | 专注工作 | 审阅认可 |
 | --- | --- |

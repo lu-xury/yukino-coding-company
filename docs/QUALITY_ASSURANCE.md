@@ -39,7 +39,8 @@ local pet-generation skill installation.
 | `qa/look-continuity.json` | Adjacent direction metrics and reviewed warnings. |
 | `qa/legibility-final-visual-qa.json` | Independent native-size approval of all six expressive event-action rows. |
 | `qa/row-diff.json` | Pixel regression proof that only rows 3–8 changed. |
-| `qa/runtime-behavior.json` | Renderer build, trigger mapping, fixed three-repeat rule, and row timings. |
+| `qa/runtime-behavior.json` | Renderer build, trigger mapping, stock three-repeat rule, optional single-play patch, and row timings. |
+| `previews/runtime-patched-showcase.gif` | Native-size visual proof of one action cycle at `2x` frame duration followed by idle. |
 | `qa/run-summary.json` | Release summary and repair scope. |
 
 ## Current accepted warnings
@@ -70,13 +71,12 @@ failure only when normal-size playback shows a conspicuous defect.
 - waving clearly raises an open palm and bends into a formal bow;
 - hover reads as a red-faced left-center-right head shake with a stop palm and
   never lifts either foot;
-- failed clearly plants both hands on the hips and leans forward to reprimand;
+- failed clearly lowers the head and shoulders with both arms hanging;
 - waiting visibly lowers into a compact crouch, holds, and rises without scale
   popping;
 - running bends 25–35 degrees from the waist for close inspection and never
   becomes literal locomotion;
-- review keeps a confident hand-on-hip silhouette and a deliberate approval
-  nod;
+- review keeps an arms-crossed silhouette and a large foreground peace hand;
 - facial, uniform, hand, and shoe landmarks remain readable at `192x208`;
 - motion remains smooth, grounded, unclipped, and persona-faithful.
 

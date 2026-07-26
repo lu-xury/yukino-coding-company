@@ -34,9 +34,9 @@
 10. Compare every row against the previous release and confirm only intended
     rows changed.
 11. Run independent visual QA.
-12. When perceived speed is the issue, prefer a large repeat-friendly action
-    silhouette and document the renderer's fixed three-repeat rule; do not add
-    unsupported manifest timing or repeat-count fields.
+12. When perceived speed is the issue, prefer a large action silhouette,
+    document the stock renderer's three-repeat rule, and keep any version-locked
+    runtime patch separate from unsupported manifest fields.
 
 ## Updating look directions
 

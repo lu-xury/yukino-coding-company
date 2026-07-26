@@ -2,7 +2,7 @@
 
 [中文说明](README.md) · [Installation](docs/INSTALLATION.md) · [Interaction design](docs/INTERACTION_DESIGN.md)
 
-An unofficial, non-commercial Yukinoshita Yukino-inspired animated pet for Codex. It uses the Codex v2 8×11 sprite contract and normal anime proportions, with event silhouettes that remain readable at native size: blushing head-shake refusal, hands-on-hips reprimand, crouched waiting, waist-bent inspection, and confident nodding approval.
+An unofficial, non-commercial Yukinoshita Yukino-inspired animated pet for Codex. It uses the Codex v2 8×11 sprite contract and normal anime proportions, with large pose-hold event silhouettes readable at native size: raised-hand greeting, bent-knee refusal, head-down failure, crouched open-palm waiting, waist-bent inspection, and an arms-crossed peace-sign finish.
 
 ## Install with a coding agent
 
@@ -14,6 +14,16 @@ Clone or safely update the repository, create a Python virtual environment, inst
 ```
 
 ## Manual installation
+
+On macOS, double-click `Install Yukino Pet.command`, or install only the pet
+files from Terminal with:
+
+```bash
+./install-to-codex.sh
+```
+
+The double-click entry asks whether to apply the version-locked runtime patch;
+the shell installer itself only copies and verifies the pet package.
 
 ```bash
 git clone git@github.com:lu-xury/yukino-coding-company.git
@@ -34,33 +44,48 @@ See [docs/INSTALLATION.md](docs/INSTALLATION.md) for Windows, updates, uninstall
 
 ![Contact sheet](previews/contact-sheet.png)
 
-Codex controls the fixed row timing and repeat count. The pet cannot slow those values through its manifest, so the artwork uses large full-body silhouettes and repeat-friendly loops, reinforced by high-contrast eyes, brows, ribbons, white piping, hands, and shoes at the native `192x208` size.
+## Patched Runtime Showcase
+
+![Single-play slow interaction showcase](previews/runtime-patched-showcase.gif)
+
+This combined animation is generated directly from the final
+`pet/spritesheet.webp`. Each event row plays once at twice the stock frame
+duration and then returns to idle. Every character area remains at the native
+`192x208` pet size.
+
+Codex controls the fixed row timing and repeat count. The pet cannot change those values through its manifest, so the artwork uses large full-body silhouettes reinforced by high-contrast eyes, brows, ribbons, white piping, hands, and shoes at the native `192x208` size. For macOS Codex `26.721.41059`, this repository also includes a version-locked, restorable runtime patch that plays one action cycle at twice the stock frame duration.
 
 ## Operation-to-animation map
 
 | Operation or task status | State | Yukino action |
 | --- | --- | --- |
-| First wake | `waving` | Raises an open hand and makes a small formal bow. |
-| Pointer enters the pet | `jumping / hover` | Blushes, raises a stop palm, and shakes her head left–center–right. |
+| First wake | `waving` | Holds a raised-hand greeting pose. |
+| Pointer enters the pet | `jumping / hover` | Holds a wide-arm refusal pose. |
 | Drag right / left | `running-right` / `running-left` | Runs in the drag direction. |
 | Pointer moves around the pet | look rows | Eyes, head, neck, and hair follow sixteen directions. |
-| Task is actively working | `running` | Bends from the waist to inspect work below and in front. |
-| Codex needs input | `waiting` | Crouches and waits with one hand supporting her cheek. |
-| Task is blocked or fails | `failed` | Plants both hands on her hips and leans forward to reprimand. |
-| Completed work has unread output | `review` | Straightens with one hand on her hip and gives a deliberate nod. |
+| Task is actively working | `running` | Holds a deep waist-bent inspection pose. |
+| Codex needs input | `waiting` | Holds a compact crouch wait/thinking pose. |
+| Task is blocked or fails | `failed` | Holds a head-down, drooped-shoulder failure pose. |
+| Completed work has unread output | `review` | Holds an arms-crossed stance with a foreground victory/peace hand. |
 | No event is active | `idle` | Breathes, blinks, and observes quietly. |
 
-Current Codex desktop builds play every non-idle row three times and then fall back to the slow idle loop. This repeat count and the per-frame durations are renderer-owned; `pet.json` has no supported override. See [interaction design](docs/INTERACTION_DESIGN.md) and the [sprite contract](docs/SPRITE_CONTRACT.md) for the exact mapping and timings.
+Stock Codex desktop builds play every non-idle row three times and then fall back to the slow idle loop. This repeat count and the per-frame durations are renderer-owned; `pet.json` has no supported override. The optional macOS patch changes the renderer to one cycle at `2x` frame duration. See [installation](docs/INSTALLATION.md), [interaction design](docs/INTERACTION_DESIGN.md), and the [sprite contract](docs/SPRITE_CONTRACT.md).
 
-| Greeting | Grounded hover | Failed / reproach |
+| Greeting | Grounded hover | Failed / blocked |
 | --- | --- | --- |
-| ![Greeting](previews/waving.gif) | ![Grounded hover](previews/hover.gif) | ![Reproach](previews/failed.gif) |
+| ![Greeting](previews/waving.gif) | ![Grounded hover](previews/hover.gif) | ![Failure](previews/failed.gif) |
 
 | Waiting | Working | Review / approval |
 | --- | --- | --- |
 | ![Waiting](previews/waiting.gif) | ![Working](previews/working.gif) | ![Review](previews/review.gif) |
 
-The preview GIFs show one atlas-row cycle for frame inspection. Codex desktop repeats that cycle three times at runtime.
+The preview GIFs show one atlas-row cycle for frame inspection. Stock Codex repeats it three times; the optional supported-build patch plays it once.
+
+Regenerate the combined runtime showcase with:
+
+```bash
+python scripts/generate_runtime_showcase.py
+```
 
 ## License boundary
 

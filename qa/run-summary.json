@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "version": "1.3.0",
-  "repair": "expressive event actions and documented renderer behavior",
+  "version": "1.5.0",
+  "repair": "Large pose-hold event rows 3-8 for slower perceived once-play under fixed 3x renderer loop",
   "changedRows": [
     3,
     4,
@@ -19,11 +19,21 @@
   ],
   "frameContract": "Codex v2 fixed",
   "runtimeRepeatCount": 3,
+  "optionalPatchedRuntimeRepeatCount": 1,
+  "optionalPatchedFrameDurationMultiplier": 2,
   "spriteVersionNumber": 2,
   "validation": "qa/validation.json",
-  "chromaDespill": "qa/chroma-despill.json",
   "visualQa": "qa/legibility-final-visual-qa.json",
   "runtimeBehavior": "qa/runtime-behavior.json",
+  "runtimeShowcase": "previews/runtime-patched-showcase.gif",
   "rowDiff": "qa/row-diff.json",
-  "spritesheetSha256": "04bb7576744bc017cdb62356ee35494f39982d43a65d9534dff67863b4ecf0b0"
+  "spritesheetSha256": "3d5e296a5d176caeaa5b804ee001aeffc7a1f1680b4e651721dae5e42440aef0",
+  "actions": {
+    "waving": "raised-hand greeting hold",
+    "jumping": "wide-arm refusal hold",
+    "failed": "head-down drooped-shoulder failure hold",
+    "waiting": "open-palm crouch wait/thinking hold",
+    "running": "waist-bent inspection hold",
+    "review": "arms-crossed + foreground victory/peace-hand hold"
+  }
 }

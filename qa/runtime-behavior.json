@@ -1,7 +1,7 @@
 {
   "observedAppBuild": {
-    "shortVersion": "26.715.52143",
-    "bundleVersion": "5591"
+    "shortVersion": "26.721.41059",
+    "bundleVersion": "5848"
   },
   "nonIdlePlayback": {
     "repeatCount": 3,
@@ -30,5 +30,16 @@
     "review": 3090,
     "running-left": 3180,
     "running-right": 3180
-  }
+  },
+  "optionalRuntimePatch": {
+    "supportedPlatform": "macOS",
+    "supportedShortVersion": "26.721.41059",
+    "supportedBundleVersion": "5848",
+    "repeatCount": 1,
+    "frameDurationMultiplier": 2,
+    "then": "slow idle loop",
+    "copyApplyRestoreTest": "pass",
+    "script": "scripts/patch_codex_pet_runtime.py"
+  },
+  "notes": "Stock playback remains renderer-owned. The version-locked optional patch changes the supported macOS build to one slower action cycle without changing the pet atlas."
 }

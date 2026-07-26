@@ -8,3 +8,5 @@ __pycache__/
 *.tmp
 dist/
 build/
+previews-tmp/
+work/
