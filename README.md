@@ -9,6 +9,10 @@
 
 ![完整动画接触表](previews/contact-sheet.png)
 
+## 原像素手工修复版
+
+本次云端更新并下载复验的成品保存在 [`pet/manual-v2/`](pet/manual-v2/)。该版本保留原脸、服装、身形与八组正常动作，修复轻跳、空余格和顺时针转向衔接。素材、动画预览、验证命令及兼容范围见 [手工修复版说明](docs/MANUAL_V2.md)。默认安装器继续使用根目录 `pet/` 中的发行包。
+
 ## 单次慢速运行效果
 
 ![单次慢速交互动画总览](previews/runtime-patched-showcase.gif)

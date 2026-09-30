@@ -8,6 +8,10 @@ Versioning for repository releases; the installed pet id remains
 
 ### Added
 
+- Added the pixel-preserving, cloud-verified manual variant under
+  `pet/manual-v2/`, with focused previews and separate CI validation. It keeps
+  eight original action states, adds a 3 px hop, repairs the clockwise look
+  sequence, and clears unused cells under the six-idle-cell cloud contract.
 - Added a version-locked macOS Codex `26.721.41059` runtime patcher with
   integrity updates, automatic backups, status checks, and restoration.
 - Added a reproducible native-size animated showcase generated directly from

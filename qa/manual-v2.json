@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "petId": "yukino-yukinoshita",
+  "displayName": "雪之下雪乃",
+  "spriteVersionNumber": 2,
+  "atlas": {
+    "format": "WEBP",
+    "sourceMode": "RGBA",
+    "width": 1536,
+    "height": 2288,
+    "columns": 8,
+    "rows": 11,
+    "cellWidth": 192,
+    "cellHeight": 208,
+    "usedCells": 73,
+    "unusedCells": 15,
+    "transparentRgbResiduePixels": 0,
+    "opaqueChromaPixels": 2
+  },
+  "sha256": {
+    "pet.json": "a08d8161ba0a0f5033c280955c63b5184f973108ee7a633d6d3088c9a754ed0e",
+    "spritesheet.webp": "1b7c43eab98ba0f8b0316baeb9e6fc7a552898768b00f9099135df3097dc1522"
+  },
+  "verification": {
+    "decoded_rgba_equal_to_cloud_download": true,
+    "unchanged_original_action_rows": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "jump_foot_baselines_exclusive_bottom": [
+      203,
+      202,
+      200,
+      202,
+      203
+    ],
+    "jump_lift_pixels": 3,
+    "jump_first_last_equal_original_idle": true,
+    "scaling_or_redraw": false,
+    "visible_pixels_cropped": false,
+    "negative_test_extra_neutral_cell_rejected": true,
+    "cloud_update_and_download_verification_completed": true,
+    "quality_profile_minimum_jump_lift_pixels": 3,
+    "limitations": [
+      "Gentle hop constrained by original five-pixel headroom.",
+      "Intermediate look pitch remains subtle; source pose-family shoulder differences remain."
+    ]
+  }
+}

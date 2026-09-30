@@ -19,6 +19,8 @@ CELL_HEIGHT = 208
 ATLAS_SIZE = (COLUMNS * CELL_WIDTH, ROWS * CELL_HEIGHT)
 # Row 0 contains six idle frames plus the v2 neutral/deadzone cell in column 6.
 USED_COLUMNS = [7, 8, 8, 4, 5, 8, 6, 6, 6, 8, 8]
+# The cloud-validated manual variant has six idle cells and no neutral cell.
+MANUAL_USED_COLUMNS = [6, 8, 8, 4, 5, 8, 6, 6, 6, 8, 8]
 EXPECTED_ID = "yukino-yukinoshita"
 EXPECTED_SPRITE_VERSION = 2
 CHROMA_KEY = (0, 255, 255)
@@ -40,10 +42,14 @@ def load_json(path: Path) -> dict[str, Any]:
     return value
 
 
-def validate(root: Path) -> dict[str, Any]:
+def validate(root: Path, variant: str = "default") -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
     pet_dir = root / "pet"
+    used_columns = USED_COLUMNS
+    if variant == "manual-v2":
+        pet_dir = pet_dir / "manual-v2"
+        used_columns = MANUAL_USED_COLUMNS
     manifest_path = pet_dir / "pet.json"
     atlas_path = pet_dir / "spritesheet.webp"
 
@@ -90,7 +96,7 @@ def validate(root: Path) -> dict[str, Any]:
     unused_cells = 0
     if atlas.size == ATLAS_SIZE:
         alpha = atlas.getchannel("A")
-        for row, used_count in enumerate(USED_COLUMNS):
+        for row, used_count in enumerate(used_columns):
             for column in range(COLUMNS):
                 box = (
                     column * CELL_WIDTH,
@@ -165,14 +171,30 @@ def main() -> None:
         help="repository root; defaults to the parent of scripts/",
     )
     parser.add_argument("--json", action="store_true", help="print JSON only")
+    parser.add_argument(
+        "--variant",
+        choices=("all", "default", "manual-v2"),
+        default="all",
+        help="packages to validate; defaults to both release and manual cloud variant",
+    )
     args = parser.parse_args()
 
     root = args.root.expanduser().resolve()
-    result = validate(root)
+    if args.variant == "all":
+        result = validate(root)
+        manual = validate(root, "manual-v2")
+        result["manualVariant"] = manual
+        result["errors"].extend(f"manual-v2: {error}" for error in manual["errors"])
+        result["warnings"].extend(f"manual-v2: {warning}" for warning in manual["warnings"])
+        result["ok"] = result["ok"] and manual["ok"]
+    else:
+        result = validate(root, args.variant)
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print(f"validation={'pass' if result['ok'] else 'fail'}")
+        if "manualVariant" in result:
+            print(f"manualVariant={'pass' if result['manualVariant']['ok'] else 'fail'}")
         if "spriteVersionNumber" in result:
             print(f"spriteVersionNumber={result['spriteVersionNumber']}")
         if "atlas" in result:

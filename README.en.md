@@ -6,6 +6,13 @@ An unofficial, non-commercial Yukinoshita Yukino-inspired animated pet for Codex
 
 ## Install with a coding agent
 
+The cloud-updated, downloaded-and-verified pixel-preserving variant is archived
+in [`pet/manual-v2/`](pet/manual-v2/). It retains eight original action states,
+adds a gentle hop, and repairs the clockwise look loop. See
+[the manual variant notes](docs/MANUAL_V2.md) for previews, validation and its
+six-idle-cell compatibility boundary. The default installer continues to use
+the release package directly under `pet/`.
+
 Send the following instruction to Codex, Claude Code, Cursor Agent, or another terminal-capable coding agent:
 
 ```text
