@@ -52,6 +52,18 @@ These timings are runtime/preview contract values, not package-level options.
 perceived action while staying compatible, consecutive used cells may hold the
 same key pose with small secondary changes such as a blink or hair settle.
 
+## Manual cloud variant
+
+`pet/manual-v2/` stores the separately cloud-validated manual repair. Its row
+counts are `6, 8, 8, 4, 5, 8, 6, 6, 6, 8, 8`: 73 occupied cells and 15 empty
+cells. Row 0, columns 6 and 7 are fully transparent. Atlas geometry and v2
+metadata remain the same. Validate it with
+`python scripts/validate_pet.py --variant manual-v2`.
+
+This cloud contract differs from the default desktop package's neutral cell.
+The default installer and its seven-cell row 0 remain unchanged. See
+[MANUAL_V2.md](MANUAL_V2.md) for the repaired variant and compatibility notes.
+
 ## Runtime repeat behavior
 
 In stock Codex desktop build `26.721.41059`, every non-idle state is played as three
